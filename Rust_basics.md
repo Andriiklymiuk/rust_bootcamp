@@ -1,5 +1,11 @@
 # Rust Programming Basics: A TypeScript Developer's Guide
 
+## Install
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+cargo --version
+```
+
 Contents:
 - [1. Hello World: Rust vs TypeScript](#1-hello-world-rust-vs-typescript)
 - [2. String Manipulation: Rust vs TypeScript](#2-string-manipulation)
