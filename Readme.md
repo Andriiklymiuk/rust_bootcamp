@@ -724,7 +724,7 @@ person.say_hello();
 
 ### 8. Traits (inheritance)
 
-### Typescripts
+### Typescript interface inheritence
 ```typescript
 interface Animal {
     makeSound(): string;
@@ -759,6 +759,8 @@ console.log(dog.makeSound());
 </br>
 </br>
 </br>
+
+### Rust trait
 
 ```rust
 trait Animal {
