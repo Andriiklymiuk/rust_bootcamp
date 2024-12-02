@@ -107,8 +107,11 @@ let mut string = String::from("Hello");
 string.push_str(" World");         // Concatenation
 string = string.to_lowercase();    // Convert to lowercase
 let length = string.len();         // Get length in bytes
-let char = string.chars().nth(0);  // Get character (returns Option)
-let sub = &string[0..5];          // Get substring (be careful with UTF-8!)
+let char = string.chars().nth(0);  // Get character (returns Option, see error handling)
+// Not safe: for just english letters or symbols
+let sub = &string[0..5];         
+// Safe: work with chars
+let first_two: String = &string.chars().take(5).collect();
 ```
 
 </br>
