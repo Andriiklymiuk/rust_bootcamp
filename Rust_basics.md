@@ -2,14 +2,18 @@
 
 Contents:
 - [1. Hello World: Rust vs TypeScript](#1-hello-world-rust-vs-typescript)
-- [2. Basic Types: Rust vs TypeScript](#2-basic-types-rust-vs-typescript)
-- [3. Error Handling: Option and Result](#3-error-handling-option-and-result)
-- [4. Structs and Implementations: Rust vs TypeScript](#4-structs-and-implementations-rust-vs-typescript)
-- [5. Arrays and Loops](#5-arrays-and-loops)
-- [6. Borrow Checker Basics](#6-borrow-checker-basics)
-- [7. Basic Pointer Examples](#7-basic-pointer-examples)
-- [8. &str vs String](#8-str-vs-string)
-- [9. String Manipulation: Rust vs TypeScript](#9-string-manipulation-rust-vs-typescript)
+- [2. String Manipulation: Rust vs TypeScript](#2-string-manipulation)
+- [3. Basic Types: Rust vs TypeScript](#3-basic-types-rust-vs-typescript)
+- [4. Pattern Matching](#4-pattern-matching)
+- [5. Enums](#5-enums)
+- [6. Error Handling: Option and Result](#6-error-handling-option-and-result)
+- [7. Structs and Implementations: Rust vs TypeScript](#7-structs-and-implementations-rust-vs-typescript)
+- [8. Traits (inheritance)](#8-traits-inheritance)
+- [9. Arrays and Loops](#9-arrays-and-loops)
+- [10. Borrow Checker Basics](#10-borrow-checker-basics)
+- [11. Basic Pointer Examples](#11-basic-pointer-examples)
+- [12. &str vs String](#12-str-vs-string)
+- [Why](#why-bother)
 
 ## 1. Hello World: Rust vs TypeScript
 
@@ -34,6 +38,45 @@ fn main() {
 fn say_hello() -> () {  // () is unit type, similar to void
     println!("Hello, World!");
 }
+
+fn return_hello() -> String {
+    "Hello, World!".to_string()
+}
+```
+
+## 2. String Manipulation
+
+## TypeScript 
+```typescript
+let str = "Hello";
+str = str + " World";              // Concatenation
+str = str.toLowerCase();           // Convert to lowercase
+let length = str.length;           // Get length
+let char = str[0];                 // Get character
+let sub = str.substring(0, 5);     // Get substring
+```
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+### Rust
+```rust
+let mut string = String::from("Hello");
+string.push_str(" World");         // Concatenation
+string = string.to_lowercase();    // Convert to lowercase
+let length = string.len();         // Get length in bytes
+let char = string.chars().nth(0);  // Get character (returns Option)
+let sub = &string[0..5];          // Get substring (be careful with UTF-8!)
 ```
 
 </br>
@@ -68,7 +111,39 @@ fn say_hello() -> () {  // () is unit type, similar to void
 </br>
 </br>
 
-## 2. Basic Types: Rust vs TypeScript
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+## 3. Basic Types: Rust vs TypeScript
 
 ### TypeScript
 ```typescript
@@ -130,8 +205,155 @@ Common Rust number types:
 </br>
 </br>
 
+## 4. Pattern Matching
+```rust
+let number = 42;
 
-## 3. Error Handling: Option and Result
+match number {
+    0 => println!("Zero"),
+    1..=50 => println!("Between 1 and 50"),
+    _ => println!("Something else"),
+}
+```
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+### TypeScript
+```typescript
+const number = 42;
+
+// Basic switching
+switch (number) {
+    case 0:
+        console.log("Zero");
+        break;
+    default:
+        if (number >= 1 && number <= 50) {
+            console.log("Between 1 and 50");
+        } else {
+            console.log("Something else");
+        }
+}
+
+// More modern approach using object literals
+type Pattern = { [key: string]: (n: number) => void };
+
+const patterns: Pattern = {
+    isZero: (n) => n === 0 && console.log("Zero"),
+    isBetween1And50: (n) => n >= 1 && n <= 50 && console.log("Between 1 and 50"),
+    default: () => console.log("Something else")
+};
+
+// Execute patterns
+if (patterns.isZero(number)) {}
+else if (patterns.isBetween1And50(number)) {}
+else patterns.default();
+```
+
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+### 5. Enums
+```rust
+enum Status {
+    Active,
+    Inactive,
+    Pending,
+}
+
+let status = Status::Active;
+match status {
+    Status::Active => println!("Active"),
+    Status::Inactive => println!("Inactive"),
+    Status::Pending => println!("Pending"),
+}
+
+enum Option<T> {
+    Some(T),    // Some is a variant that holds a value
+    None        // None is a variant with no value
+}
+let some_number: Option<i32> = Some(5);
+let no_number: Option<i32> = None;
+
+```
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+## 6. Error Handling: Option and Result
 
 ### TypeScript Error Handling
 ```typescript
@@ -163,7 +385,176 @@ function divide(a: number, b: number): number | Error {
 </br>
 </br>
 
-### Typescript with ts-result library
+### Rust Error Handling
+```rust
+
+
+// Option - for values that might not exist
+enum Option<T> {
+    Some(T),
+    None,
+}
+let maybe_number: Option<i32> = None;
+let definitely_number: Option<i32> = Some(5);
+
+
+// Result - for operations that might fail
+enum Result<T, E> {
+    Ok(T),
+    Err(E),
+}
+let result: Result<i32, String> = Ok(42);
+let error_result: Result<i32, String> = Err("Something went wrong".to_string());
+
+fn divide(a: i32, b: i32) -> Result<i32, String> {
+    if b == 0 {
+        return Err("Division by zero".to_string());
+    }
+    Ok(a / b)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 1. Using match
+match divide(10, 2) {
+    Ok(result) => println!("Result: {}", result),
+    Err(error) => println!("Error: {}", error),
+}
+
+
+
+
+
+
+
+
+
+// 2. Using is_ok() and is_err()
+let result = divide(10, 2);
+if result.is_ok() {
+    println!("Result: {}", result.unwrap());
+}
+if result.is_err() {
+    println!("Error: {}", result.unwrap_err());
+}
+
+
+
+
+
+
+// 3. Using if let (when you care only about Ok)
+if let Ok(result) = divide(10, 2) {
+    println!("Result: {}", result);
+}
+
+
+
+
+
+// 4. Using unwrap_or (provides default value if error)
+let result = divide(10, 0).unwrap_or(0);
+println!("Result with default: {}", result);
+
+
+
+
+
+// 5. Using expect (panic with custom message if error)
+let result = divide(10, 2).expect("Division failed");
+println!("Result: {}", result);
+
+
+
+
+
+
+// 6. Using map (transform success value)
+let result = divide(10, 2)
+    .map(|x| x * 2);  // multiply by 2 if Ok
+
+
+
+
+
+// 7. Using map_err (transform error value)
+let result = divide(10, 0)
+    .map_err(|e| format!("Error occurred: {}", e));
+
+
+
+
+
+// 8. Using and_then (chain operations)
+let result = divide(10, 2)
+    .and_then(|x| divide(x, 2));  // divide result by 2
+
+
+
+
+
+// 9. Using the ? operator in a function
+fn complex_operation() -> Result<i32, String> {
+    let x = divide(10, 2)?;  // returns Err if divide fails
+    let y = divide(x, 2)?;   // otherwise continues
+    Ok(y + 1)
+}
+
+
+
+
+
+
+// Using ? operator for error propagation
+fn complicated_operation() -> Result<i32, String> {
+    let result = divide(10, 2)?;  // ? will return Err if divide fails
+    Ok(result * 2)
+}
+
+
+
+
+
+// r# is raw string literal, without it it would be
+// "{\"name\": \"John\", \"age\": 30}
+let json_str = r#"{"name": "John", "age": 30}"#;
+    
+// Parse into a JsonValue
+let parsed = json::parse(json_str);
+
+// json::parse returns Result automatically
+match parsed {
+    Ok(data) => println!("Name: {}", data["name"]),
+    Err(error) => println!("Failed to parse: {}", error)
+}
+```
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+### Typescript with ts-result library (runtime check)
 ```typescript
 import { Result, Ok, Err, Option, Some, None } from 'ts-results-es';
 
@@ -197,46 +588,7 @@ if (result.isErr()) {
 }
 
 ```
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
 
-### Rust Error Handling
-```rust
-// Option - for values that might not exist
-let maybe_number: Option<i32> = None;
-let definitely_number: Option<i32> = Some(5);
-
-// Result - for operations that might fail
-let result: Result<i32, String> = Ok(42);
-let error_result: Result<i32, String> = Err("Something went wrong".to_string());
-
-// Practical example
-fn divide(a: i32, b: i32) -> Result<i32, String> {
-    if b == 0 {
-        return Err("Division by zero".to_string());
-    }
-    Ok(a / b)
-}
-
-// Using match with Result
-match divide(10, 2) {
-    Ok(result) => println!("Result: {}", result),
-    Err(error) => println!("Error: {}", error),
-}
-
-// Using ? operator for error propagation
-fn complicated_operation() -> Result<i32, String> {
-    let result = divide(10, 2)?;  // ? will return Err if divide fails
-    Ok(result * 2)
-}
-```
 </br>
 </br>
 </br>
@@ -269,10 +621,10 @@ fn complicated_operation() -> Result<i32, String> {
 </br>
 </br>
 
-## 4. Structs and Implementations: Rust vs TypeScript
-
+## 7. Structs and Implementations: Rust vs TypeScript
+### TypeScript Class
 ```typescript
-// TypeScript Class
+
 class Person {
     name: string;
     age: number;
@@ -286,10 +638,27 @@ class Person {
         console.log(`Hello, I'm ${this.name}`);
     }
 }
+const person = new Person("Alice", 30);
+person.sayHello(); 
 ```
 
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+### Rust Struct and Impl
 ```rust
-// Rust Struct and Impl
+
 struct Person {
     name: String,
     age: u32,
@@ -312,34 +681,76 @@ let person = Person::new(String::from("Alice"), 30);
 person.say_hello();
 ```
 
-### Pattern Matching
-```rust
-let number = 42;
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
 
-match number {
-    0 => println!("Zero"),
-    1..=50 => println!("Between 1 and 50"),
-    _ => println!("Something else"),
+### 8. Traits (inheritance)
+
+### Typescripts
+```typescript
+interface Animal {
+    makeSound(): string;
 }
+
+class Dog implements Animal {
+    name: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    makeSound(): string {
+        return "Woof!";
+    }
+}
+
+const dog = new Dog("Rex");
+console.log(dog.makeSound());
 ```
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
 
-### Enums
-```rust
-enum Status {
-    Active,
-    Inactive,
-    Pending,
-}
-
-let status = Status::Active;
-match status {
-    Status::Active => println!("Active"),
-    Status::Inactive => println!("Inactive"),
-    Status::Pending => println!("Pending"),
-}
-```
-
-### Traits (similar to interfaces)
 ```rust
 trait Animal {
     fn make_sound(&self) -> String;
@@ -354,12 +765,44 @@ impl Animal for Dog {
         "Woof!".to_string()
     }
 }
+
+Dog.make_sound()
 ```
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
 
+## 9. Arrays and Loops
 
-## 5. Arrays and Loops
-
-### TypeScript Arrays and Loops
+### TypeScript
 ```typescript
 // Array
 let numbers: number[] = [1, 2, 3, 4, 5];
@@ -377,34 +820,115 @@ for (const num of numbers) {
 // forEach
 numbers.forEach(num => console.log(num));
 ```
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
 
-### Rust Arrays and Loops
+### Rust
 ```rust
-// Fixed-size array
-let numbers: [i32; 5] = [1, 2, 3, 4, 5];
+// Arrays - Fixed size
+let arr1: [i32; 5] = [1, 2, 3, 4, 5];         // Standard declaration
+let arr2 = [3; 5];                            // [3, 3, 3, 3, 3]
+let arr3: [i32; 5] = Default::default();      // [0, 0, 0, 0, 0]
 
-// Vector (dynamic array)
-let mut vector: Vec<i32> = vec![1, 2, 3, 4, 5];
+// Vectors - Dynamic size
+// Creation methods
+let vec1: Vec<i32> = vec![1, 2, 3, 4, 5];    // Using vec! macro
+let vec2 = Vec::new();                        // Empty vector
+let mut vec3 = Vec::with_capacity(10);        // Preallocate space
+let vec4 = (0..5).collect::<Vec<i32>>();      // From range
+// Vector from array
+let vec6 = vec1.to_vec();
 
-// For loop
-for num in numbers.iter() {
-    println!("{}", num);
-}
 
-// Range-based loop
-for i in 0..5 {
-    println!("{}", i);
-}
+// Adding elements to vector
+let mut vec5 = Vec::new(); // or vec![]
+vec5.push(1);
+vec5.push(2);
 
-// While loop
-let mut i = 0;
-while i < 5 {
-    println!("{}", i);
-    i += 1;
+
+
+
+
+
+// Common iterators examples
+let numbers = vec![1, 2, 3, 4, 5];
+
+// Map
+let doubled: Vec<i32> = numbers.iter().map(|x| x * 2).collect();
+// [2, 4, 6, 8, 10]
+
+// Filter
+let even: Vec<i32> = numbers.iter().filter(|x| *x % 2 == 0).collect();
+// [2, 4]
+
+// Find
+let found = numbers.iter().find(|&&x| x > 3);
+// Some(4)
+
+// Any/All
+let has_even = numbers.iter().any(|x| x % 2 == 0);    // true
+let all_even = numbers.iter().all(|x| x % 2 == 0);    // false
+
+// Fold (reduce)
+let sum = numbers.iter().fold(0, |acc, x| acc + x);   // 15
+
+// Chaining iterators
+let result: Vec<i32> = numbers
+    .iter()
+    .filter(|x| *x % 2 == 0)  // keep even numbers
+    .map(|x| x * 2)           // multiply by 2
+    .collect();               // collect into vector
+
+// Enumerate
+for (index, value) in numbers.iter().enumerate() {
+    println!("Index: {}, Value: {}", index, value);
 }
 ```
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
 
-## 6. Borrow Checker Basics
+## 10. Borrow Checker Basics
 
 ```rust
 fn main() {
@@ -425,7 +949,39 @@ fn main() {
 }
 ```
 
-## 7. Basic Pointer Examples
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+## 11. Basic Pointer Examples
 
 ```rust
 fn main() {
@@ -442,7 +998,39 @@ fn main() {
 }
 ```
 
-## 8. &str vs String
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+## 12. &str vs String
 
 ```rust
 // &str - string slice, immutable, borrowed
@@ -460,31 +1048,58 @@ let mut s = String::from("Hello");
 s.push_str(" World");  // Only String can be modified
 ```
 
-## 9. String Manipulation: Rust vs TypeScript
+### How they stored in memory
+```
+// &str (string slice)
+Stack               Binary/Heap
+[ptr|len] -------> ["Hello"]
 
-```typescript
-// TypeScript string manipulation
-let str = "Hello";
-str = str + " World";              // Concatenation
-str = str.toLowerCase();           // Convert to lowercase
-let length = str.length;           // Get length
-let char = str[0];                 // Get character
-let sub = str.substring(0, 5);     // Get substring
+// String
+Stack               Heap
+[ptr|len|cap] ---> ["Hello"]
+
+// &String
+Stack               Stack               Heap
+[ptr] -----------> [ptr|len|cap] ---> ["Hello"]
+
 ```
 
-```rust
-// Rust string manipulation
-let mut string = String::from("Hello");
-string.push_str(" World");         // Concatenation
-string = string.to_lowercase();    // Convert to lowercase
-let length = string.len();         // Get length in bytes
-let char = string.chars().nth(0);  // Get character (returns Option)
-let sub = &string[0..5];          // Get substring (be careful with UTF-8!)
-```
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
 
 
 
-Remember:
+
+## Why bother?
 - Rust is memory safe without garbage collection
 - No null values - use Option instead
 - No exceptions - use Result for error handling
