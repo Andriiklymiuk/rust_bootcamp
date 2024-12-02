@@ -44,6 +44,38 @@ fn return_hello() -> String {
 }
 ```
 
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
 ## 2. String Manipulation
 
 ## TypeScript 
@@ -78,38 +110,6 @@ let length = string.len();         // Get length in bytes
 let char = string.chars().nth(0);  // Get character (returns Option)
 let sub = &string[0..5];          // Get substring (be careful with UTF-8!)
 ```
-
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
 
 </br>
 </br>
