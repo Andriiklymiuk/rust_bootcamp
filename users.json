@@ -1,0 +1,18 @@
+[
+  {
+    "nickname": "superuser",
+    "role": "admin"
+  },
+  {
+    "nickname": "john_doe",
+    "role": "user"
+  },
+  {
+    "nickname": "root",
+    "role": "admin"
+  },
+  {
+    "nickname": "guest",
+    "role": "user"
+  }
+]

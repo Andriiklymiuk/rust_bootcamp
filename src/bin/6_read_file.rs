@@ -16,7 +16,7 @@ fn main() -> io::Result<()> {
     for line in reader.lines() {
         let line = line?;
 
-        // Task 1: Count total number of words in the like
+        // Task 1: Count total number of words in the line
 
         println!("{}", line);
     }

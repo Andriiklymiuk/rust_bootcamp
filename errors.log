@@ -1,0 +1,4 @@
+2024-03-19 10:15:23 error: Failed to connect to database
+2024-03-19 10:15:24 info: Retrying connection
+2024-03-19 10:15:25 error: Connection timeout
+2024-03-19 10:15:26 info: System shutdown

@@ -20,6 +20,7 @@ Contents:
 - [11. Basic Pointer Examples](#11-basic-pointer-examples)
 - [12. &str vs String](#12-str-vs-string)
 - [Why](#why-bother)
+- [How to run exercises](#how-to-run-exercises)
 
 ## 1. Hello World: Rust vs TypeScript
 
@@ -667,7 +668,8 @@ person.sayHello();
 
 ### Rust Struct and Impl
 ```rust
-
+// special helper for beauty printing
+#[derive(Debug)]
 struct Person {
     name: String,
     age: u32,
@@ -1117,3 +1119,68 @@ Stack               Stack               Heap
 - Strong type system with type inference
 - Ownership system prevents memory issues
 - Pattern matching is powerful and widely used
+
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+## How to run exercises
+
+In order for you to run rust project, you should:
+
+```bash
+cargo run
+```
+
+But for exercises, for simplicity sake, we need to run
+
+```bash
+# name of exercise to run in src/bin folder
+cargo run --bin 1_strings
+```
+
+Some exercises will require to pass files, for example exercises 5
+```bash
+cargo run --bin 5_read_file_without_clap -- errors.log
+```
+
+For cli we can use rust methods, but it is better to use clap library for parsing of arguments. Here is is installed already, but if you want, you can add 
+
+```bash
+# for clap cli arguments parses
+ cargo add clap --features derive    
+# for json serialize/deserialize
+cargo add serde --features derive
+cargo add serde_json
+
+
+```
