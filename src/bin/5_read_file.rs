@@ -1,6 +1,6 @@
+use clap::Parser;
 use std::fs::File;
 use std::io::{self, BufRead, BufReader};
-use clap::Parser;
 
 #[derive(Parser)]
 struct Args {
@@ -15,8 +15,13 @@ fn main() -> io::Result<()> {
 
     for line in reader.lines() {
         let line = line?;
+
+        // Task 1: Count total number of words in the like
+
         println!("{}", line);
     }
+
+    // Task 2: Count total number of lines in the file
 
     Ok(())
 }
