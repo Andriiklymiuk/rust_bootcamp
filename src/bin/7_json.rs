@@ -19,23 +19,24 @@ fn read_users(path: &str) -> io::Result<Vec<User>> {
 
 fn main() -> io::Result<()> {
     // Bug 1: Something is missing here, check the type
-    let args: Vec<String> = env::args();
+    let args: Vec<String> = env::args().collect();
     if args.len() < 2 {
         eprintln!("Usage: {} <users.json>", args[0]);
         // Bug 2: Exit with error code 1
-        std::process;
+        std::process::exit(1);
     }
 
     // Bug 3: Something is missing here, check the type
-    let users = read_users(&args[1]);
+    let users = read_users(&args[1])?;
 
     // Bug 4: Are we sure, that we get users count here?
-    let admin_count = users.iter().filter(|u| u.role == "admin");
+    let admin_count = users.iter().filter(|u| u.role == "admin").count();
 
     println!("Found {} admins:", admin_count);
 
     // Bug 5: Something is missing here, check the type
     users
+        .into_iter()
         .filter(|u| u.role == "admin")
         .for_each(|u| println!("- {}", u.nickname));
 
