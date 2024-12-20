@@ -35,8 +35,10 @@ fn main() {
     ];
 
     // Bug 1: Using wrong slice method (should use filter)
-    let modern_consoles =
-        consoles.iter().filter(|c| c.release_year >= 2010).collect::<Vec<&Console>>();
+    let modern_consoles = consoles
+        .iter()
+        .filter(|c| c.release_year >= 2010)
+        .collect::<Vec<&Console>>();
     println!("Modern consoles: {:?}", &modern_consoles);
 
     // Bug 2: Incorrect string slice usage - trying to modify a string slice
