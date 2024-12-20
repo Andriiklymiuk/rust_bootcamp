@@ -365,8 +365,8 @@ enum Option<T> {
     Some(T),    // Some is a variant that holds a value
     None        // None is a variant with no value
 }
-let some_number: Option<i32> = Some(5);
-let no_number: Option<i32> = None;
+let some_number: Option<i32> = Option::Some(5);
+let no_number: Option<i32> = Option::None;
 
 ```
 </br>
