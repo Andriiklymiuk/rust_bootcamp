@@ -504,7 +504,7 @@ println!("Result: {}", result);
 
 
 
-// 6. Using map (transform success value)
+// 6. Using map (change success value)
 let result = divide(10, 2)
     .map(|x| x * 2);  // multiply by 2 if Ok
 
@@ -512,7 +512,7 @@ let result = divide(10, 2)
 
 
 
-// 7. Using map_err (transform error value)
+// 7. Using map_err (change error value)
 let result = divide(10, 0)
     .map_err(|e| format!("Error occurred: {}", e));
 
@@ -739,7 +739,7 @@ person.say_hello();
 
 ### 8. Traits (inheritance)
 
-### Typescript interface inheritence
+### Typescript interface inheritance
 ```typescript
 interface Animal {
     makeSound(): string;

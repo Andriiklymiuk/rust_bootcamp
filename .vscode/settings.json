@@ -1,5 +1,31 @@
 {
   "cSpell.words": [
-    "dialoguer"
+    "adler",
+    "autocfg",
+    "axum",
+    "bitflags",
+    "demangle",
+    "dialoguer",
+    "dotenv",
+    "gimli",
+    "gnullvm",
+    "httparse",
+    "httpdate",
+    "itoa",
+    "matchit",
+    "memchr",
+    "miniz",
+    "msvc",
+    "println",
+    "rustc",
+    "rustversion",
+    "scopeguard",
+    "serde",
+    "smallvec",
+    "syscall",
+    "tlsv",
+    "tokio",
+    "transform",
+    "unicode"
   ]
 }
