@@ -1182,6 +1182,13 @@ cargo add clap --features derive
 # for json serialize/deserialize (7_json)
 cargo add serde --features derive
 cargo add serde_json
+
+# for server (8_server_basic)
+cargo add axum
+cargo add tokio --features full
+
+# for server with env (9_server_with_env)
+cargo add dotenv
 ```
 
 ## Exercises
@@ -1202,5 +1209,13 @@ cargo run --bin 5_read_file_without_clap -- errors.log
 cargo run --bin 6_read_file_with_clap -- --file errors.log
 
 cargo run --bin 7_json -- users.json
-```
 
+cargo run --bin 8_server_basic
+# what to run to add user to test print
+curl -X POST -H "Content-Type: application/json" -d '{"name":"John","age":30}' http://localhost:3000/users
+
+cargo run --bin 9_server_with_env
+# run this to get status info
+curl http://localhost:3005/status
+
+```
