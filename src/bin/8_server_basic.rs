@@ -11,7 +11,7 @@ struct Status {
     version: String,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 struct User {
     name: String,
     age: u32,
@@ -39,8 +39,8 @@ async fn hello_world() -> &'static str {
 async fn status() -> Json<Status> {
     let status = Status {
         // Bug 1: check type
-        status: "running",
-        version: "1.0.0",
+        status: "running".to_string(),
+        version: "1.0.0".to_string(),
     };
     Json(status)
 }

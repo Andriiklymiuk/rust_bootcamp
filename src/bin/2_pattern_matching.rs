@@ -16,12 +16,13 @@ fn match_network_status(code: u16) -> NetworkStatus {
         200 => NetworkStatus::Connected,
         404 => NetworkStatus::Error(404),
         // Bug 1: Missing catch-all pattern
+        _ => NetworkStatus::Disconnected,
     }
 }
 
 fn parse_command(input: &str) -> (&str, &str) {
     // Bug 2: you need to somehow create array of strings from input
-    let parts: Vec<&str> = input.split_whitespace();
+    let parts: Vec<&str> = input.split_whitespace().collect();
 
     (parts[0], parts[1])
 }

@@ -7,6 +7,7 @@ struct EnvVariables {
     port: String,
     app_version: String,
     // Task 1: Add environment field
+    environment: String,
 }
 
 impl EnvVariables {
@@ -16,6 +17,7 @@ impl EnvVariables {
         Self {
             port: env::var("PORT").unwrap_or_else(|_| "3000".to_string()),
             app_version: env::var("APP_VERSION").unwrap_or_else(|_| "1.0.0".to_string()),
+            environment: env::var("ENVIRONMENT").unwrap_or_else(|_| "development".to_string()),
         }
     }
 }
@@ -25,6 +27,7 @@ struct Status {
     status: String,
     version: String,
     // Task 2: Add environment field
+    environment: String,
 }
 
 #[tokio::main]
@@ -52,6 +55,7 @@ async fn status(State(env_vars): State<Arc<EnvVariables>>) -> Json<Status> {
         status: "running".to_string(),
         version: env_vars.app_version.clone(),
         // Tag 3: Add environment field
+        environment: env_vars.environment.clone(),
     };
     Json(status)
 }
