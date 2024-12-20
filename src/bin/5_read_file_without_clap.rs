@@ -17,6 +17,17 @@ fn main() -> io::Result<()> {
     for line in reader.lines() {
         // Task 1: print line, if it contains error
         // Task 2: separate the line into words and print time too
+        match line {
+            Ok(result) => {
+                if result.contains("error") {
+                    println!("Line: {}", result)
+                } else {
+                    let words: Vec<&str> = result.split_whitespace().take(2).collect();
+                    println!("No error: {} {}", words[0], words[1])
+                }
+            }
+            Err(error) => println!("Error: {}", error),
+        }
     }
 
     Ok(())
