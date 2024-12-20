@@ -156,7 +156,7 @@ let char = string.chars().nth(0);  // Get character (returns Option, see error h
 // Not safe: for just english letters or symbols
 let sub = &string[0..5];         
 // Safe: work with chars
-let first_five: String = &string.chars().take(5).collect();
+let first_five: String = string.chars().take(5).collect();
 ```
 
 </br>
