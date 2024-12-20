@@ -34,6 +34,19 @@ function sayHello(): void {
 console.log("Hello, World!");
 ```
 
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
 ### Rust
 ```rust
 // main entrance to rust execution, like index.js in js
