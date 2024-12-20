@@ -6,6 +6,31 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 cargo --version
 ```
 
+Install extension
+ 
+```bash
+# vscode user
+https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer
+jetbrains
+# jetbrains user
+https://plugins.jetbrains.com/plugin/22407-rust
+```
+Clone this repo with exercises
+ 
+```bash
+git clone https://github.com/Andriiklymiuk/rust_bootcamp.git
+```
+Some links, that might be helpful while learning it
+ 
+```bash
+# rust official resources
+https://www.rust-lang.org/learn 
+
+# other exercises to try
+https://exercism.org/tracks/rust/
+https://github.com/rust-lang/rustlings
+```
+
 Contents:
 - [1. Hello World: Rust vs TypeScript](#1-hello-world-rust-vs-typescript)
 - [2. String Manipulation: Rust vs TypeScript](#2-string-manipulation)
