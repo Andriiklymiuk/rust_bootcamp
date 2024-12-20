@@ -347,6 +347,7 @@ else patterns.default();
 </br>
 
 ### 5. Enums
+
 ```rust
 enum Status {
     Active,
@@ -368,6 +369,54 @@ enum Option<T> {
 let some_number: Option<i32> = Option::Some(5);
 let no_number: Option<i32> = Option::None;
 
+```
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+### Typescript
+```typescript
+const Status = {
+    Active: 'Active',
+    Inactive: 'Inactive',
+    Pending: 'Pending'
+};
+
+const status = Status.Active;
+
+const matchStatus = {
+    [Status.Active]: () => console.log("Active"),
+    [Status.Inactive]: () => console.log("Inactive"),
+    [Status.Pending]: () => console.log("Pending")
+}[status]();
 ```
 </br>
 </br>
