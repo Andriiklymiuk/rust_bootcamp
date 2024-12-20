@@ -55,3 +55,4 @@ async fn status(State(env_vars): State<Arc<EnvVariables>>) -> Json<Status> {
     };
     Json(status)
 }
+

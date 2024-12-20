@@ -1219,3 +1219,11 @@ cargo run --bin 9_server_with_env
 curl http://localhost:3005/status
 
 ```
+
+
+If you have completed all of exercises, than you can try and build from scratch your own server or cli
+```bash
+cargo run --bin 10_what_you_want_exercise
+```
+
+
