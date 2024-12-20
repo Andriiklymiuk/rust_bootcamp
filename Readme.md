@@ -1176,11 +1176,31 @@ cargo run --bin 5_read_file_without_clap -- errors.log
 For cli we can use rust methods, but it is better to use clap library for parsing of arguments. Here is is installed already, but if you want, you can add 
 
 ```bash
-# for clap cli arguments parses
- cargo add clap --features derive    
-# for json serialize/deserialize
+# for clap cli arguments parses (6_read_file_with_clap)
+cargo add clap --features derive    
+
+# for json serialize/deserialize (7_json)
 cargo add serde --features derive
 cargo add serde_json
-
-
 ```
+
+## Exercises
+
+Fix each of them and implement required tasks
+
+```bash
+cargo run --bin 1_strings
+
+cargo run --bin 2_pattern_matching
+
+cargo run --bin 3_filter_array
+
+cargo run --bin 4_number_arrays
+
+cargo run --bin 5_read_file_without_clap -- errors.log
+
+cargo run --bin 6_read_file_with_clap -- --file errors.log
+
+cargo run --bin 7_json -- users.json
+```
+
