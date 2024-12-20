@@ -154,7 +154,7 @@ string = string.to_lowercase();    // Convert to lowercase
 let length = string.len();         // Get length in bytes
 let char = string.chars().nth(0);  // Get character (returns Option, see error handling)
 // Not safe: for just english letters or symbols
-let sub = &string[0..5];         
+let sub = &string[0..5]; // not including 5th
 // Safe: work with chars
 let first_five: String = string.chars().take(5).collect();
 ```
