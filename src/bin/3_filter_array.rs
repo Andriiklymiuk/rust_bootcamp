@@ -6,7 +6,7 @@ struct Console {
 }
 
 fn main() {
-    let consoles = vec![
+    let mut consoles = vec![
         Console {
             brand: String::from("Xbox"),
             model: String::from("360"),
@@ -35,14 +35,16 @@ fn main() {
     ];
 
     // Bug 1: Using wrong slice method (should use filter)
-    let modern_consoles = consoles.iter().map(|c| c.release_year >= 2010);
+    let modern_consoles: Vec<&Console> =
+        consoles.iter().filter(|c| c.release_year >= 2010).collect();
     println!("Modern consoles: {:?}", modern_consoles);
 
     // Bug 2: Incorrect string slice usage - trying to modify a string slice
-    let brand_slice = &consoles[0].brand.push_str(" Series");
+    let brand_slice = &mut consoles[0].brand;
+    brand_slice.push_str(" Series");
     println!("Brand slice: {:?}", brand_slice);
 
     // Bug 3: Incorrect string slice usage - trying to modify a string slice
-    let first_brand: String = &consoles[0].brand;
+    let first_brand: &str = &consoles[0].brand;
     println!("First brand: {}", first_brand);
 }
